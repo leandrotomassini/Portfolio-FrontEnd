@@ -1,0 +1,85 @@
+
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+#imgcover{
+    /* background-image: url(/assets/img/cover.jpg); */
+    background-size: cover;
+    min-height: 350px;
+    overflow: hidden;
+    object-fit: cover;
+     
+}
+#separador{
+  background-size: cover;
+  margin: 0px;
+}
+body {
+    padding-top: 56px;
+    background-color: #f7f8fa
+}
+
+#profpic{
+    max-width: 200px;
+    border-radius: 50%;
+    position: relative;
+    top: -100px; /* ajustar los valores para mover la imagen */
+    margin-bottom: -100px;
+
+}
+
+#areaperfil{
+    display: block;
+    text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.profile-small {
+  width: 80px;
+  height: 80px;
+}
+#habilidades{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.col-md-3{
+  text-align: center;
+}
+.col-md-4{
+  display: inline-grid;
+  text-align: center;
+}
+.col-md-12>h3{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.tarjeta{
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+#footer{
+  background-color: #343a40;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.clight {
+  color:#6c757d;
+}
+.logolateral{
+  height: auto;
+  width: auto;
+  max-height: 140px;
+  max-width: 140px;
+}
+
+/* PALETA DE COLORES: De mas oscuro a mas claro
+A: #2C557A 
+D: #51667A
+E: #4889C7
+C: #5AADFA
+B: #A5D1FA
+ */

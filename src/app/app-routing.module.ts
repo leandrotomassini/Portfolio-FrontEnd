@@ -1,30 +1,32 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+
+import { LoginComponent } from './auth/login/login.component';
+import { AdminComponent } from './users/admin/admin.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+import { GuardService as guard } from './guards/guard.service';
 
 const routes: Routes = [
+  { path: '', component: PortfolioComponent },
+  { path: 'portfolio', component: PortfolioComponent },
+
   {
-    path: '',
-    redirectTo: 'portfolio',
-    pathMatch: 'full'
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [guard],
+    data: { expectedRol: ['admin'] },
   },
-  {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'portfolio',
-    loadChildren: () => import('./pages/portfolio/portfolio.module').then( m => m.PortfolioPageModule)
-  },
-  {
-    path: '**',
-    redirectTo: 'portfolio'
-  }
+
+  // rutas a login 
+  { path: 'login', component: LoginComponent },
+
+  { path: '**', redirectTo: 'portfolio', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

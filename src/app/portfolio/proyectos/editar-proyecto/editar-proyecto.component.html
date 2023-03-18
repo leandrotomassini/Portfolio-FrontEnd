@@ -1,0 +1,54 @@
+<div class="modal-header" style="background-color: #198754">
+  <h2 class="mt-2 modal-title">Editar proyecto</h2>
+  <button type="button" class="btn-close" color="" aria-label="Cerrar"
+    (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+
+<div class="modal-body">
+  <div class="container">
+    <form [formGroup]="editarProyectoForm" (ngSubmit)="submitEditForm()" id="editarProyectoForm">
+      <div class="form-group mt-2">
+        <label for="titulo">Nombre del Proyecto:</label>
+        <input type="text" class="form-control" formControlName="titulo" />
+      </div>
+
+      <div class="form-group">
+        <label for="imgUrl">Url de imagen de portada:</label>
+        <input type="text" class="form-control" formControlName="imgUrl" name="imgUrl" />
+      </div>
+
+      <div class="form-group">
+        <label>Vista Previa:</label><br />
+        <div class="text-center">
+          <img src="{{ imgPreview }}" class="logoproyectos img-fluid" alt="imgPreview" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">Descripción del proyecto:</label>
+        <textarea type="text" rows="6" class="form-control" formControlName="descripcion"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="tecnologias">Tecnologías utilizadas:</label>
+        <textarea type="text" rows="6" class="form-control" formControlName="tecnologias"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="proyectoUrl">URL del proyecto:</label>
+        <input type="text" class="form-control" formControlName="proyectoUrl" />
+      </div>
+
+      <div class="form-group">
+        <label for="sourceCodeUrl">URL del código fuente:</label>
+        <input type="text" class="form-control" formControlName="sourceCodeUrl" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="submit" form="editarProyectoForm" class="btn btn-success" [disabled]="!editarProyectoForm.valid">
+    Guardar Cambios
+  </button>
+</div>

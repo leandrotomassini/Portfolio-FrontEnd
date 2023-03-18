@@ -1,3 +1,87 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<header id="topheader">
+  <div class="row" id="cont-header">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12">
+          <nav id="navbar" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand"
+              href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
+              target="_blank">
+              <img src="/assets/img/APLogo.png" height="60" alt="Argentina Programa" />
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto" id="barranav">
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor:pointer" (click)="navegarA('inicio')" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor:pointer" (click)="navegarA('experiencia')" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show">Experiencia</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor:pointer" (click)="navegarA('educacion')" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show">Educacion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor:pointer" (click)="navegarA('habilidades')" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show">Habilidades</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor:pointer" (click)="navegarA('proyectos')" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="cursor:pointer" (click)="openContactoModal()" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show">Contacto</a>
+                </li>
+              </ul>
+
+              <li *ngIf="!isLogin" class="nav-item navbar-nav">
+                <div id="social-botones" class="mx-2">
+                  <a class="btn" style="color:white ;" href="https://github.com/leandrotomassini" target="_blank">
+                    <i class="fa-brands fa-github fa-xl" title="Github" data-bs-toggle="collapse"
+                      data-bs-target=".navbar-collapse.show"></i>
+                  </a>
+                  <a class="btn" style="color:white ;" href="https://www.linkedin.com/in/leandro-cosme-tomassini/"
+                    target="_blank">
+                    <i class="fa-brands fa-linkedin fa-xl" title="Linkedin" data-bs-toggle="collapse"
+                      data-bs-target=".navbar-collapse.show"></i>
+                  </a>
+                  <a class="btn" style="color:white ;" routerLink="login" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show">
+                    <i class="fa-solid fa-right-to-bracket" title="Acceso Editor"></i>
+                  </a>
+                </div>
+              </li>
+
+
+              <li *ngIf="isLogin" class="nav-item">
+                <div id="social-botones" class="mx-2">
+                  <a class="btn" style="color:white ;" href="https://github.com/leandrotomassini" target="_blank">
+                    <i class="fa-brands fa-github fa-xl" title="Github"></i>
+                  </a>
+                  <a class="btn" style="color:white ;" href="https://www.linkedin.com/in/leandro-cosme-tomassini/"
+                    target="_blank">
+                    <i class="fa-brands fa-linkedin fa-xl" title="Linkedin"></i>
+                  </a>
+                  <a style="color:white" class="btn" (click)="logOut()" data-bs-toggle="collapse"
+                    data-bs-target=".navbar-collapse.show">
+                    <i class="fa-solid fa-right-from-bracket" title="Cerrar Sesión"></i></a>
+                </div>
+              </li>
+
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<router-outlet></router-outlet>

@@ -1,0 +1,35 @@
+<div class="header-intro theme-bg-primary text-white py-5 mt-2">
+  <div class="container">
+    <h2 class="page-heading mb-0">Login</h2>
+  </div>
+</div>
+
+<div *ngIf="isLogged; else loggedOut">Bienvenido ADMIN!</div>
+
+<ng-template #loggedOut>
+  <div *ngIf="!isLogged" class="container py-3 mt-2">
+    <h5>Iniciar Sesión</h5>
+    <form name="form" #f="ngForm" novalidate (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label for="nombreUsuario">Nombre de Usuario: </label>
+        <input type="text" class="form-control" name="nombreusuario" [(ngModel)]="form.nombreUsuario" autocomplete="off"
+          required />
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña: </label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" autocomplete="off"
+          required />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success" [disabled]="!f.valid">
+          Login
+        </button>
+        <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger mt-3">
+          Login incorrecto, revisá tus credenciales
+        </div>
+        <!-- <a routerLink="/registro"><button class="btn btn-primary float-right">Crear Cuenta</button></a>
+          <p class="float-right mr-3">¿No tienes cuenta?</p> -->
+      </div>
+    </form>
+  </div>
+</ng-template>

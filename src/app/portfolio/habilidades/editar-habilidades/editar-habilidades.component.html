@@ -1,0 +1,38 @@
+<div class="modal-header" style="background-color: #0dcaf0">
+  <h2 class="mt-2 mt-h2 modal-title">Editar Habilidad</h2>
+  <button type="button" class="btn-close" color="" aria-label="Cerrar"
+    (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+
+<form [formGroup]="editarHabilidadesForm" (ngSubmit)="submitEditForm()">
+  <div class="modal-body">
+    <div class="container">
+      <div class="mt-2 form-group">
+        <label for="titulo">Título:</label>
+        <input type="text" class="form-control" formControlName="titulo" />
+      </div>
+
+      <div class="mt-2 form-group">
+        <label for="avance">Avance:</label>
+        <input class="ml-3" type="radio" value="30" formControlName="avance" />
+        <span class="ml-1">30%</span>
+        <input class="ml-3" type="radio" value="45" formControlName="avance" />
+        <span class="ml-1">45%</span>
+        <input class="ml-3" type="radio" value="60" formControlName="avance" />
+        <span class="ml-1">60%</span>
+        <input class="ml-3" type="radio" value="75" formControlName="avance" />
+        <span class="ml-1">75%</span>
+        <input class="ml-3" type="radio" value="90" formControlName="avance" />
+        <span class="ml-1">90%</span>
+        <input class="ml-3" type="radio" value="95" formControlName="avance" />
+        <span class="ml-1">95%</span>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-success" [disabled]="!editarHabilidadesForm.valid">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

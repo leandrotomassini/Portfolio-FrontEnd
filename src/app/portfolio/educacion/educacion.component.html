@@ -1,0 +1,93 @@
+<div class="container-fluid " id="educacion">
+  <div>
+    <hr />
+    <h2 class="mat-h2">Mi Educación</h2>
+
+    <div class="row" *ngIf="!authority">
+    <div>
+      <ul>
+        <li class="row tarjeta  py-3 my-4" *ngFor="let elemento of miEducacion">
+          <div class="col-md-2">
+            <img class="logolateral" [alt]="elemento.curso" [src]="elemento.imgUrl" />
+          </div>
+          <div class="col-md-10">
+            <div class="row" id="tituloTarjeta">
+              <div class="col-md-6">
+                <h2 class="mat-h2">{{ elemento.curso }}</h2>
+              </div>
+            </div>
+
+            <h3 class="mat-h3">{{ elemento.institucion }}</h3>
+            <p>{{ elemento.descripcion }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    </div>
+
+    <div *ngIf="authority === 'admin'">
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-9 align-items-center" style="padding-right: 2em">
+          <a class="btn btn-info float-end" (click)="openAddFormModal()"><i class="fa-solid fa-plus"
+              style="color: white"></i></a>
+              <button class="float-end btn btn-success mx-4" (click)="guardarOrden()">Confirmar orden de elementos</button>
+
+        </div>
+   
+      </div>
+      <ul cdkDropList class="lista-droppeable" (cdkDropListDropped)="drop($event)">
+        <li class="row tarjeta caja-droppeable py-3 my-4" *ngFor="let elemento of miEducacion" cdkDragLockAxis="y"
+          cdkDrag>
+          <div class="lista-handler">
+            <i class="fa-2 fa-solid fa-bars"></i>
+          </div>
+          <div class="col-md-2">
+            <img class="logolateral" [alt]="elemento.curso" [src]="elemento.imgUrl" />
+          </div>
+          <div class="col-md-10">
+            <div class="row" id="tituloTarjeta">
+              <div class="col-md-6">
+                <h2 class="mat-h2">{{ elemento.curso }}</h2>
+              </div>
+
+              <div *ngIf="!authority" class="col-md-6 float-right">
+                <p class="float-right" id="fechas">
+                  {{ elemento.fechaDesde }} - {{ elemento.fechaHasta }}
+                </p>
+              </div>
+
+              <div class="col-md-3">
+                <div *ngIf="authority === 'admin'" class="float-right">
+                  <p id="fechas">
+                    {{ elemento.fechaDesde }} - {{ elemento.fechaHasta }}
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="float-right">
+                  <a (click)="openEditFormModal(elemento.id)">
+                    <i class="btn btn-success mx-2 fa-solid fa-pen-to-square"></i>
+                  </a>
+                  <a (click)="borrar(elemento.id)">
+                    <i class="btn btn-danger fa-solid fa-trash-can"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="mat-h3">{{ elemento.institucion }}</h3>
+            <p>{{ elemento.descripcion }}</p>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+
+
+  </div>
+</div>

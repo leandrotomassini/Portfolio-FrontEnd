@@ -1,0 +1,54 @@
+<div class="modal-header" style="background-color: #0dcaf0">
+  <h2 class="mt-2 mt-h2 modal-title">Agregar Experiencia</h2>
+  <button type="button" class="btn-close" color="" aria-label="Cerrar"
+    (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+
+<div class="modal-body">
+  <div class="container">
+    <form [formGroup]="crearExperienciaForm" (ngSubmit)="submitForm()" id="crearExperienciaForm">
+      <div class="mt-2 form-group">
+        <label for="curso">Cargo:</label>
+        <input type="text" class="form-control" formControlName="cargo" />
+      </div>
+
+      <div class="form-group">
+        <label for="institucion">Empresa:</label>
+        <input type="text" class="form-control" formControlName="empresa" />
+      </div>
+
+      <div class="form-group">
+        <label for="imgUrl">URL de la imagen:</label>
+        <input type="text" class="form-control" formControlName="imgUrl" />
+      </div>
+
+      <div class="form-group">
+        <label>Vista Previa:</label><br />
+        <div class="text-center">
+          <img id="image-preview" src="{{ imgPreview }}" class="logolateral img-fluid" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fechaDesde">Fecha desde:</label>
+        <input type="text" class="form-control" formControlName="fechaDesde" />
+      </div>
+
+      <div class="form-group">
+        <label for="fechaHasta">Fecha hasta:</label>
+        <input type="text" class="form-control" formControlName="fechaHasta" />
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <input type="text" class="form-control" formControlName="descripcion" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button form="crearExperienciaForm" class="btn btn-success" [disabled]="!crearExperienciaForm.valid">
+    Agregar
+  </button>
+</div>

@@ -1,0 +1,35 @@
+<div class="modal-header" *ngIf="cargado">
+  <h2 class="mt-2 modal-title">
+    Detalles del Proyecto: {{ datosActual.titulo }}
+  </h2>
+  <button type="button" class="btn-close" color="" aria-label="Cerrar"
+    (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body" *ngIf="cargado">
+  <img class="logoproyectos" [src]="datosActual.imgUrl" alt="" />
+  <hr />
+
+  <h2 class="mat-h2">Descripción del proyecto</h2>
+  <p>{{ datosActual.descripcion }}</p>
+  <h2 class="mat-h2">Tecnologías utilizadas</h2>
+  <p>{{ datosActual.tecnologias }}</p>
+</div>
+<div class="modal-footer">
+
+
+  <a class="btn btn-dark" (click)="visitarSourceUrl(datosActual.id)">
+    <i class="mx-1 fa-brands fa-github" style="color: white"> </i>
+    <span style="color: white">Código Fuente</span>
+  </a>
+
+  <a class="btn btn-success" (click)="visitarUrl(datosActual.id)">
+    <i class="mx-1 fa-solid fa-arrow-up-right-from-square" style="color: white"> </i>
+    <span style="color: white">Visitar</span>
+  </a>
+
+  <a class="btn btn-danger" (click)="activeModal.close('Close click')">
+    <i class="mx-1 fa-solid fa-xmark" style="color: white"> </i>
+    <span style="color: white">Cerrar</span>
+  </a>
+
+</div>
